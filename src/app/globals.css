@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Dark Mode (Default) */
+  --bg-main: #0f0f0f;
+  --bg-sidebar: #161616;
+  --bg-card: #1a1a1a;
+  --bg-item: #202020;
+  --bg-hover: #252525;
+  --bg-input: #0a0a0a;
+  --border-color: #333333;
+  --text-main: #e5e5e5;
+  --text-muted: #9ca3af;
+  --text-accent: #a855f7; /* Purple-500 */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.light-mode {
+  /* Light Mode */
+  --bg-main: #f3f4f6;
+  --bg-sidebar: #ffffff;
+  --bg-card: #ffffff;
+  --bg-item: #f9fafb;
+  --bg-hover: #f3f4f6;
+  --bg-input: #ffffff;
+  --border-color: #e5e7eb;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --text-accent: #7e22ce; /* Purple-700 */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --color-theme-main: var(--bg-main);
+  --color-theme-sidebar: var(--bg-sidebar);
+  --color-theme-card: var(--bg-card);
+  --color-theme-item: var(--bg-item);
+  --color-theme-hover: var(--bg-hover);
+  --color-theme-input: var(--bg-input);
+  --color-theme-border: var(--border-color);
+  --color-theme-text-main: var(--text-main);
+  --color-theme-text-muted: var(--text-muted);
+  --color-theme-accent: var(--text-accent);
+  
+  --font-sans: var(--font-jetbrains-mono);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+html {
+  /* font-size: 15px; */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: monospace;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-sidebar); 
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color); 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted); 
 }
